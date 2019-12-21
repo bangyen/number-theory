@@ -1,7 +1,8 @@
 import math
 import random
 
-functions_in_this_package = {"is_prime": ""}
+functions_in_this_package = {"is_prime": "A primality test Miller-Rabin",
+                             "is_merrsenne": "Lucas Lehmer merssene prime tests"}
 
 
 # import statistics
@@ -10,8 +11,45 @@ functions_in_this_package = {"is_prime": ""}
 
 # Prime stuff
 
+def is_prime(num):
+    # Returns True if num is a prime number.
 
-def lucas_lehmer(p):
+    s = num - 1
+    t = 0
+    while s % 2 == 0:
+        # keep halving s while it is even (and use t
+        # to count how many times we halve s)
+        s = s // 2
+        t += 1
+
+    for trials in range(5):  # try to falsify number's primality 5 times
+        a = random.randrange(2, num - 1)
+        v = pow(a, s, num)
+        if v != 1:  # this test does not apply if v is 1.
+            i = 0
+            while v != (num - 1):
+                if i == t - 1:
+                    return False
+                else:
+                    i = i + 1
+                    v = (v ** 2) % num
+    return True
+
+
+def pi_function(x):
+    rx = int(math.sqrt(x))
+    sieve = [0 for _ in range(rx + 1)]
+    n = x
+    for p in range(2, rx + 1):
+        if sieve[p] == 0:
+            n = n - n // p + 1
+            for q in range(p * p, rx + 1, p):
+                sieve[q] = 1
+    n = n - 1
+    return n
+
+
+def is_merrsenne(p):
     s = 4
     m = pow(2, p) - 1
     for i in range(1, p - 1):
@@ -24,8 +62,8 @@ def lucas_lehmer_gen(n):
     answer = []
     for j in range(1, n):
         if is_prime(j):
-            if lucas_lehmer(j):
-                print(j, lucas_lehmer(j))
+            if is_merrsenne(j):
+                print(j, is_merrsenne(j))
                 n = input("Continue?")
                 answer.append(j)
                 if "contin" not in n:
@@ -99,44 +137,6 @@ def nth_power(stop, power):
         power = i ** power
         ans.append(power)
     return ans
-
-
-def is_prime(num):
-    # Returns True if num is a prime number.
-
-    s = num - 1
-    t = 0
-    while s % 2 == 0:
-        # keep halving s while it is even (and use t
-        # to count how many times we halve s)
-        s = s // 2
-        t += 1
-
-    for trials in range(5):  # try to falsify number's primality 5 times
-        a = random.randrange(2, num - 1)
-        v = pow(a, s, num)
-        if v != 1:  # this test does not apply if v is 1.
-            i = 0
-            while v != (num - 1):
-                if i == t - 1:
-                    return False
-                else:
-                    i = i + 1
-                    v = (v ** 2) % num
-    return True
-
-
-def pi_function(x):
-    rx = int(math.sqrt(x))
-    sieve = [0 for _ in range(rx + 1)]
-    n = x
-    for p in range(2, rx + 1):
-        if sieve[p] == 0:
-            n = n - n // p + 1
-            for q in range(p * p, rx + 1, p):
-                sieve[q] = 1
-    n = n - 1
-    return n
 
 
 def pascal_triangle(n, x):
