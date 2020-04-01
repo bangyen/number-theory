@@ -4,6 +4,8 @@ from number_theory_essentials import *
 from numbertheorylists import *
 
 
+
+
 def partial_sum_for_half_plus_fourth(n):
     result = 0
     for i in range(1, n + 1):
@@ -268,4 +270,16 @@ def root_equivalents(modulus, root):
         if i**2 % modulus == root:
             root_equivalent.append(i)
     print(root_equivalent)
+
+
+def sumset_exploration(set_A, set_B):
+    # a tool for exploring various sumsets
+    set_a = set(set_A)
+    set_b = set(set_B)
+    sumset = []
+    for a in set_a:
+        for b in set_b:
+            sumset.append(a + b)
+    sumset = set(sumset)
+    return sumset
 

@@ -15,6 +15,26 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 
 # Prime stuff
 
+def is_prime_wilsons_theorem(n):
+    if factorial(n - 1) % n == n - 1:
+        print(True)
+    else:
+        print(False)
+
+
+def pythogerian_theorem(num):
+    for i in range (1,num**2):
+        pass
+
+def is_prime(num):
+    prime = True
+    if (num % 2 != 0 or 2) and num != 1:
+        for i in range(2, num):
+            if num % i == 0:
+                prime = False
+    else:
+        prime = False
+    return prime
 
 def is_prime(num):
     isprime = True
@@ -84,14 +104,17 @@ def find_lcm(m, n):
     print(result)
 
 
-def totient_fuction(mod):
+def totient_fuction(mod, print_units):
     m = mod
     units = []
     for i in range(1, m):
         if gcd(i, m) == 1:
             units.append(i)
     ans = len(units)
-    return ans
+    if not print_units:
+        return ans
+    else:
+        return ans, units
 
 
 def nth_power(stop, power):
