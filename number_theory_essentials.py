@@ -21,6 +21,7 @@ def is_prime_wilsons_theorem(n):
     else:
         print(False)
 
+
 def pythogerian_theorem(num):
     for i in range (1,num**2):
         pass
@@ -34,6 +35,16 @@ def is_prime(num):
     else:
         prime = False
     return prime
+
+def is_prime(num):
+    isprime = True
+    if (num % 2 != 0 or 2) and num != 1:
+        for i in range(2, num):
+            if num % i == 0:
+                isprime = False
+    else:
+        isprime = False
+    return isprime
 
 
 def prime_gen(start, stop):
@@ -62,6 +73,7 @@ def merrsenne_gen(n):
             answer.append(j)
             if "continue" not in n.lower():
                 return answer
+
 
 
 def prime_factor(number):
