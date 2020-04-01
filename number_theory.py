@@ -1,7 +1,9 @@
-# import math
+import math
 import statistics
 from number_theory_essentials import *
 from numbertheorylists import *
+
+
 
 
 def partial_sum_for_half_plus_fourth(n):
@@ -23,7 +25,7 @@ def lucas_lehmer(p):
 def lucas_lehmer_gen(n):
     answer = []
     for j in range(1, n):
-        if is_prime_2(j):
+        if is_prime(j):
             if lucas_lehmer(j):
                 print(j, lucas_lehmer(j))
                 n = input("Continue?")
@@ -130,7 +132,7 @@ def addition_sums_mod_n_gen(start, stop):
 def patern_mod_n_adding_gen_primes(end, start_1, start_2):
     lengths = []
     for mod in range(start_1, end + 1):
-        if is_prime_2(mod):
+        if is_prime(mod):
             print("mod=" + str(mod) + ":")
             for number in range(start_2, mod):
                 print("mod=" + str(mod) + " number=" + str(number) + ":" + str(pattern_mod_n_adding(number, mod)))
@@ -160,7 +162,7 @@ def prime_mult(n):
 
 def prime_mult_gen(n):
     for i in range(1, n):
-        if is_prime_2(i):
+        if is_prime(i):
             prime_mult(i)
 
 
@@ -245,3 +247,40 @@ def string_function(string):
         elif item == "3":
             three = three + 1
     return str(zero)+str(one)+str(two)+str(three)
+
+
+def primitive_root(n):
+    primitive_roots = []
+    coprime_to_n = []
+    for i in range(1, n):
+        if gcd(n, i) == 1:
+            coprime_to_n.append(i)
+    for i in range(1, n):
+        powers_of_i = []
+        for e in range(1, n):
+            powers_of_i.append(i ** e % n)
+        if sorted(powers_of_i) == coprime_to_n:
+            primitive_roots.append(i)
+    print(primitive_roots)
+
+
+def root_equivalents(modulus, root):
+    root_equivalent = []
+    for i in range(0, modulus):
+        if i**2 % modulus == root:
+            root_equivalent.append(i)
+    print(root_equivalent)
+
+
+def sumset_exploration(set_A, set_B):
+    # a tool for exploring various sumsets
+    set_a = set(set_A)
+    set_b = set(set_B)
+    sumset = []
+    for a in set_a:
+        for b in set_b:
+            sumset.append(a + b)
+    sumset = set(sumset)
+    return sumset
+
+
