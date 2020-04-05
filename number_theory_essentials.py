@@ -15,45 +15,16 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 
 # Prime stuff
 
-# I (varun31415) created a primes class to put all the prime functions in I will leave the other functions there in case you want to leave it as is
-# I also tried to rename the functions to make up for the class name 
-class primes:
-  class pi: # this class is for the prime pi function. I will put my sieve function in there and a bunch of others
-    def sieve(num):
-      pass# still working on it, I lost the previous code somewhere in my computer
-    def regular(num): # please find a better name for this function
-      pi = 0
-      for i in range(2,num+1):
-        if factorial(i- 1) % i = i- 1:
-          pi = pi + 1
-      return pi
-  class primality_test:
-    def wilsons_theorem(n):
-      return factorial(n - 1) % n == n - 1
-    def regular(num): # please try to find a better name for this function
-      prime = True
-      if (num % 2 != 0 or 2) and num != 1:
-          for i in range(2, num):
-              if num % i == 0:
-                  prime = False
-      else:
-          prime = False
-      return prime
-    def merrsenne(p):
-      s = 4
-      m = pow(2, p) - 1
-      for i in range(1, p - 1):
-          s = (pow(s, 2) - 2) % m
-      if s == 0:
-          return pow(2, p) - 1
-    
 def is_prime_wilsons_theorem(n):
-  return factorial(n - 1) % n == n - 1 # shortened it to one line, no need of if statements 
- 
-# pythagorean was originally spelled wrong. please rename all other cases of this function spelled wrong to prevent errors
-def pythagorean_theorem(num):
+    if factorial(n - 1) % n == n - 1:
+        print(True)
+    else:
+        print(False)
+
+
+def pythogerian_theorem(num):
     for i in range (1,num**2):
-        pass 
+        pass
 
 def is_prime(num):
     prime = True
@@ -133,8 +104,8 @@ def find_lcm(m, n):
     print(result)
 
 
-def totient_fuction(modulus, print_units):
-    m = modulus
+def totient_fuction(mod, print_units):
+    m = mod
     units = []
     for i in range(1, m):
         if gcd(i, m) == 1:
