@@ -1,11 +1,12 @@
 import random
 from math import *
 from numbertheorylists import *
+from itertools import *
 
 functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
-                             "is_merrsenne": "Lucas Lehmer merssene prime test",
-                             "prime_gen": "genorates primes",
-                             "merrsenne_gen": "genorates merssene primes",
+                             "is_mersenne": "Lucas Lehmer mersenne prime test",
+                             "prime_gen": "generates primes",
+                             "mersenne_gen": "generates mersenne_gen primes",
                              "factor": "factors a number"}
 
 
@@ -17,14 +18,15 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 
 def is_prime_wilsons_theorem(n):
     if factorial(n - 1) % n == n - 1:
-        print(True)
+        return True
     else:
-        print(False)
+        return False
 
 
-def pythogerian_theorem(num):
-    for i in range (1,num**2):
+def pythagorean_theorem(num):
+    for i in range(1, num ** 2):
         pass
+
 
 def is_prime(num):
     prime = True
@@ -36,16 +38,6 @@ def is_prime(num):
         prime = False
     return prime
 
-def is_prime(num):
-    isprime = True
-    if (num % 2 != 0 or 2) and num != 1:
-        for i in range(2, num):
-            if num % i == 0:
-                isprime = False
-    else:
-        isprime = False
-    return isprime
-
 
 def prime_gen(start, stop):
     ans = []
@@ -55,7 +47,7 @@ def prime_gen(start, stop):
     return ans
 
 
-def is_merrsenne(p):
+def is_mersenne(p):
     s = 4
     m = pow(2, p) - 1
     for i in range(1, p - 1):
@@ -64,16 +56,13 @@ def is_merrsenne(p):
         return pow(2, p) - 1
 
 
-def merrsenne_gen(n):
+def mersenne_gen(n):
     answer = []
-    for j in range(1, n):
-        if is_merrsenne(j):
-            print(is_merrsenne(j))
-            n = input("Continue?")
-            answer.append(j)
-            if "continue" not in n.lower():
-                return answer
-
+    for j in range(1, n + 1):
+        if is_mersenne(j):
+            print(j ** 2 + 1)
+            answer.append(j ** 2 + 1)
+            return answer
 
 
 def prime_factor(number):
@@ -104,8 +93,7 @@ def find_lcm(m, n):
     print(result)
 
 
-def totient_fuction(mod, print_units):
-    m = mod
+def totient_fuction(m, print_units):
     units = []
     for i in range(1, m):
         if gcd(i, m) == 1:
@@ -159,31 +147,20 @@ def choose(n, k):
 
 
 def partition(n):
-    ans = []
-    current_partition = []
-    function_done = False
-    partition_over = False
-    number_of_partitions = bell_numbers[n + 1]
-    last_one = 1
-
-    while not function_done:
-        to_go = n
-        unit = 0
-        while not partition_over:
-            unit = random.randint(1, to_go)
-            to_go = to_go - unit
-            current_partition.append(unit)
-            if to_go == 0:
-                partition_over = True
-        partition_over = False
-        if current_partition not in ans:
-            ans.append(current_partition)
-            print(current_partition)
-        current_partition = []
-        if len(ans) == number_of_partitions:
-            function_done = True
-    return ans
-
-
-
-
+    partitions = []
+    l = ""
+    for i in range(1, n + 1):
+        l += str(i)
+    for i in range(1, n + 1):
+        comb = product(l, repeat=i)
+        for element in comb:
+            z = 0
+            for character in element:
+                z += int(character)
+            if z == n:
+                new_part = []
+                for e in element:
+                    new_part.append(int(e))
+                if sorted(new_part) not in partitions:
+                    partitions.append(new_part)
+    return partitions
