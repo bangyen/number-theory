@@ -1,9 +1,8 @@
-import math
 import statistics
 from number_theory_essentials import *
-from numbertheorylists import *
 
 
+# from numbertheorylists import *
 
 
 def partial_sum_for_half_plus_fourth(n):
@@ -246,7 +245,7 @@ def string_function(string):
             two = two + 1
         elif item == "3":
             three = three + 1
-    return str(zero)+str(one)+str(two)+str(three)
+    return str(zero) + str(one) + str(two) + str(three)
 
 
 def primitive_root(n):
@@ -267,19 +266,16 @@ def primitive_root(n):
 def root_equivalents(modulus, root):
     root_equivalent = []
     for i in range(0, modulus):
-        if i**2 % modulus == root:
+        if i ** 2 % modulus == root:
             root_equivalent.append(i)
     print(root_equivalent)
 
 
-def sumset_exploration(set_A, set_B):
+def sumset_exploration(set_a, set_b):
     # a tool for exploring various sumsets
-    set_a = set(set_A)
-    set_b = set(set_B)
     sumset = []
     for a in set_a:
         for b in set_b:
             sumset.append(a + b)
     sumset = set(sumset)
     return sumset
-
