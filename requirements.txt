@@ -1,2 +1,2 @@
 
-itertools=9.7
+itertools==9.7
