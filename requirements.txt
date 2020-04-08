@@ -1,3 +1,2 @@
 
-math==3
-pip==3*
+itertools=9.7
