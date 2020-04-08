@@ -1,8 +1,4 @@
 
-import sys
-import math
-
-
 def ceil(x):
     """Return the ceiling of x as a float, the smallest integer value greater
     than or equal to x.
