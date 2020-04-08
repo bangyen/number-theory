@@ -1,5 +1,3 @@
-"""Skeleton for 'math' stdlib module."""
-
 
 import sys
 import math
