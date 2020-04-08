@@ -25,12 +25,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-<<<<<<< HEAD
-        pip install -r math.txt
-=======
         python -m pip install --upgrade pip
         pip install -r requirements.txt
->>>>>>> parent of fc86ec9... Update numbertheorypackage.yml
     - name: Lint with flake8
       run: |
         pip install flake8
