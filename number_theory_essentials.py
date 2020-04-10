@@ -1,4 +1,4 @@
-import random
+
 from math import *
 from numbertheorylists import *
 from itertools import *
@@ -15,6 +15,7 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 
 
 # Prime stuff
+
 
 def is_prime_wilsons_theorem(n):
     if factorial(n - 1) % n == n - 1:
@@ -47,22 +48,22 @@ def prime_gen(start, stop):
     return ans
 
 
-def is_mersenne(p):
+def lucas_lehmer(p):
     s = 4
     m = pow(2, p) - 1
     for i in range(1, p - 1):
         s = (pow(s, 2) - 2) % m
     if s == 0:
-        return pow(2, p) - 1
+        return True, pow(2, p) - 1
 
 
-def mersenne_gen(start, n):
+def lucas_lehmer_gen(start, stop):
     answer = []
-    for j in range(start, n + 1):
-        if is_mersenne(j):
-            print(j ** 2 - 1)
-            answer.append(j ** 2 - 1)
-            return answer
+    for j in range(start, stop+1):
+        if lucas_lehmer(j):
+            print(j, lucas_lehmer(j))
+            answer.append(j**2-1)
+        return answer
 
 
 def prime_factor(number):
@@ -95,7 +96,7 @@ def find_lcm(m, n):
 
 def totient_fuction(m, print_units):
     units = []
-    for i in range(1, m):
+    for i in range(1, m+1):
         if gcd(i, m) == 1:
             units.append(i)
     ans = len(units)
@@ -115,7 +116,7 @@ def nth_power(stop, power):
 
 def pascal_triangle(n, x):
     ans = 1
-    for i in range(0, x):
+    for i in range(0, x+1):
         number = n - i
         ans = number * ans
     ans = ans / factorial(x)
@@ -138,12 +139,6 @@ def pascals_triangle(stop):
 def d(n, m):
     if (m / n) % 1 == 0:
         return True
-
-
-def choose(n, k):
-    num = factorial(n)
-    den = factorial(n - k) * factorial(k)
-    return num / den
 
 
 def partition(n):
