@@ -1,6 +1,4 @@
-
 from math import *
-from numbertheorylists import *
 from itertools import *
 
 functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
@@ -17,7 +15,7 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 # Prime stuff
 
 
-def is_prime_wilsons_theorem(n):
+def is_prime_wilson_theorem(n):
     if factorial(n - 1) % n == n - 1:
         return True
     else:
@@ -59,10 +57,10 @@ def lucas_lehmer(p):
 
 def lucas_lehmer_gen(start, stop):
     answer = []
-    for j in range(start, stop+1):
+    for j in range(start, stop + 1):
         if lucas_lehmer(j):
             print(j, lucas_lehmer(j))
-            answer.append(j**2-1)
+            answer.append(j ** 2 - 1)
         return answer
 
 
@@ -96,7 +94,7 @@ def find_lcm(m, n):
 
 def totient_fuction(m, print_units):
     units = []
-    for i in range(1, m+1):
+    for i in range(1, m + 1):
         if gcd(i, m) == 1:
             units.append(i)
     ans = len(units)
@@ -116,7 +114,7 @@ def nth_power(stop, power):
 
 def pascal_triangle(n, x):
     ans = 1
-    for i in range(0, x+1):
+    for i in range(0, x + 1):
         number = n - i
         ans = number * ans
     ans = ans / factorial(x)
@@ -132,7 +130,6 @@ def pascals_triangle(stop):
         l.append(1)
         print(l)
         ans.append(l)
-        l = []
     return ans
 
 
@@ -154,56 +151,44 @@ def partition(n):
                 z += int(character)
             if z == n:
                 new_part = []
-                for e in element:
-                    new_part.append(int(e))
+                for item in element:
+                    new_part.append(int(item))
                 if sorted(new_part) not in partitions:
                     partitions.append(new_part)
     return partitions
 
-  
-  import math
 
 def primitive_root(n):
     primitive_roots = []
     coprime_to_n = []
     for i in range(1, n):
-        if math.gcd(n, i) == 1:
+        if gcd(n, i) == 1:
             coprime_to_n.append(i)
     for i in range(1, n):
         powers_of_i = []
-        for e in range(1, n):
-            powers_of_i.append(i**e % n)
+        for x in range(1, n):
+            powers_of_i.append(i ** x % n)
         if sorted(powers_of_i) == coprime_to_n:
             primitive_roots.append(i)
     return primitive_roots
 
+
 def root_equivalents(modulus, root):
-    root_equivalents = []
+    root_equivalent = []
     for i in range(0, modulus):
-        if i**2 % modulus == root:
-            root_equivalents.append(i)
-    return root_equivalents
-
-def is_prime_Wilsons_Theorem(n):
-    if math.factorial(n - 1) % n == n - 1:
-        return True
-    else:
-        return False
+        if i ** 2 % modulus == root:
+            root_equivalent.append(i)
+    return root_equivalent
 
 
-def sumset_exploration(set_A, set_B): # a tool for exploring various sumsets
-    set_A = set(set_A)
-    set_B = set(set_B)
-    sumset = []
-    for a in set_A:
-        for b in set_B:
-            sumset.append(a + b)
-    sumset = set(sumset)
-    return sumset
+def sumset_exploration(set_a, set_b):  # a tool for exploring various sumsets
+    sum_set = []
+    for a in set_a:
+        for b in set_b:
+            sum_set.append(a + b)
+    sum_set = set(sum_set)
+    return sum_set
 
-  
-def pigeon(colors, number_needed):
-    return (number_needed - 1)*(colors)
 
-print(socks(2, 2))
-  
+def pigeon_hole(colors, number_needed):
+    return (number_needed - 1) * colors
