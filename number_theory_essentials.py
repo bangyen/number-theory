@@ -5,7 +5,12 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "is_mersenne": "Lucas Lehmer mersenne prime test",
                              "prime_gen": "generates primes",
                              "mersenne_gen": "generates mersenne_gen primes",
-                             "factor": "factors a number"}
+                             "factor": "factors a number",
+                             "partition": "partitions a number",
+                             "primitive_root": "finds primitive roots modulo n",
+                             "root_equivalents": "finds numbers modulo n equivalent to root given its square",
+                             "sumset_exploration": "a tool for exploring various sumsets",
+                             "pigeon_hole": "finds number of theoretical socks needed to be pulled blindly to ensure a certain number of socks of the same color"}
 
 
 # import statistics
@@ -173,15 +178,15 @@ def primitive_root(n):
     return primitive_roots
 
 
-def root_equivalents(modulus, root):
+def root_equivalents(modulus, square_of_root):
     root_equivalent = []
     for i in range(0, modulus):
-        if i ** 2 % modulus == root:
+        if i ** 2 % modulus == square_of_root:
             root_equivalent.append(i)
     return root_equivalent
 
 
-def sumset_exploration(set_a, set_b):  # a tool for exploring various sumsets
+def sumset_exploration(set_a, set_b):
     sum_set = []
     for a in set_a:
         for b in set_b:
