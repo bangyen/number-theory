@@ -1,5 +1,4 @@
 typing
-math
 itertools
 statistics
 math-basic
