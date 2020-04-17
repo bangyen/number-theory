@@ -1,5 +1,5 @@
-from math import *
-from itertools import *
+import math
+import itertools
 
 functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "is_mersenne": "Lucas Lehmer mersenne prime test",
@@ -10,7 +10,7 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "primitive_root": "finds primitive roots modulo n",
                              "root_equivalents": "finds numbers modulo n equivalent to root given its square",
                              "sumset_exploration": "a tool for exploring various sumsets",
-                             "pigeon_hole": "finds number of theoretical socks needed to be pulled blindly to ensure a certain number of socks of the same color"}
+                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure a certain number of items of the same color"}
 
 
 # import statistics
@@ -21,7 +21,7 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
 
 
 def is_prime_wilson_theorem(n):
-    if factorial(n - 1) % n == n - 1:
+    if math.factorial(n - 1) % n == n - 1:
         return True
     else:
         return False
@@ -93,14 +93,14 @@ def factor(number):
 
 
 def find_lcm(m, n):
-    result = m * n / gcd(m, n)
+    result = m * n / math.gcd(m, n)
     print(result)
 
 
 def totient_fuction(m, print_units):
     units = []
     for i in range(1, m + 1):
-        if gcd(i, m) == 1:
+        if math.gcd(i, m) == 1:
             units.append(i)
     ans = len(units)
     if not print_units:
@@ -122,7 +122,7 @@ def pascal_triangle(n, x):
     for i in range(0, x + 1):
         number = n - i
         ans = number * ans
-    ans = ans / factorial(x)
+    ans = ans / math.factorial(x)
     return int(ans)
 
 
@@ -149,8 +149,8 @@ def partition(n):
     for i in range(1, n + 1):
         l += str(i)
     for i in range(1, n + 1):
-        comb = product(l, repeat=i)
-        for element in comb:
+        combination = itertools.product(l, repeat=i)
+        for element in combination:
             z = 0
             for character in element:
                 z += int(character)
@@ -167,7 +167,7 @@ def primitive_root(n):
     primitive_roots = []
     coprime_to_n = []
     for i in range(1, n):
-        if gcd(n, i) == 1:
+        if math.gcd(n, i) == 1:
             coprime_to_n.append(i)
     for i in range(1, n):
         powers_of_i = []
