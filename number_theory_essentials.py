@@ -28,9 +28,10 @@ def is_prime_wilson_theorem(n):
 
 
 def pythagorean_theorem(num):
+    #This is not finished
     for i in range(1, num ** 2):
-        pass
-
+        i=i+1
+        return i
 
 def is_prime(num):
     prime = True
