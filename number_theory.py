@@ -104,12 +104,12 @@ def pattern_mod_n_adding_gen(end, start_1, start_2):
 
 
 # noinspection PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined
-def pattern_mod_n_analytics_v1(end_1, start_1_1, start_2_1, end_2, start_1_2, start_2_2, function):
+def pattern_mod_n_analytics_v1(end_1, start_1_1, start_2_1, end_2, start_1_2, start_2_2, the_function):
     global first, last
-    if "add" in function:
+    if "add" in the_function:
         first = pattern_mod_n_adding_gen(end_1, start_1_1, start_2_1)
         last = pattern_mod_n_adding_gen(end_2, start_1_2, start_2_2)
-    elif "multiplication" in function:
+    elif "multiplication" in the_function:
         first = pattern_mod_n_multipling_gen(end_1, start_1_1, start_2_1)
         last = pattern_mod_n_multipling_gen(end_2, start_1_2, start_2_2)
     for key in first:
@@ -178,7 +178,7 @@ def powers_of_x_plus_1_mod_prime_gen(x, prime, stop_p):
 
 def totient_function_for_1_number(mod):
     for i in range(1, 1000000000):
-        if number_theory_essentials.totient_fuction(i) == mod:
+        if number_theory_essentials.totient_function(i) == mod:
             print(i)
 
 
@@ -251,15 +251,15 @@ def string_function(string):
 
 def primitive_root(n):
     primitive_roots = []
-    co-prime_to_n = []
+    co_prime_to_n = []
     for i in range(1, n):
         if math.gcd(n, i) == 1:
-            co-prime_to_n.append(i)
+            co_prime_to_n.append(i)
     for i in range(1, n):
         powers_of_i = []
         for e in range(1, n):
             powers_of_i.append(i ** e % n)
-        if sorted(powers_of_i) == co-prime_to_n:
+        if sorted(powers_of_i) == co_prime_to_n:
             primitive_roots.append(i)
     print(primitive_roots)
 
