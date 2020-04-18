@@ -15,28 +15,29 @@ def primitive_root(n):
     return primitive_roots
 
 def root_equivalents(modulus, root):
-    root_equivalents = []
+    root_equivalent = []
     for i in range(0, modulus):
         if i**2 % modulus == root:
-            root_equivalents.append(i)
-    return root_equivalents
+            root_equivalent.append(i)
+    return root_equivalent
 
-def is_prime_Wilsons_Theorem(n):
+def is_prime_wilsons_theorem(n):
     if math.factorial(n - 1) % n == n - 1:
         return True
     else:
         return False
 
 
-def sumset_exploration(set_A, set_B): # a tool for exploring various sumsets
-    set_A = set(set_A)
-    set_B = set(set_B)
-    sumset = []
-    for a in set_A:
-        for b in set_B:
-            sumset.append(a + b)
-    sumset = set(sumset)
-    return sumset
+def sum_set_exploration(set_a, set_b): # a tool for exploring various sum-sets
+    set_a = set(set_a)
+    set_b = set(set_b)
+    sum_set = []
+    for a in set_a:
+        for b in set_b:
+            sum_set.append(a + b)
+    sum_set = set(sum_set)
+    return sum_set
+
 
 import itertools
 def partition(n):
@@ -60,6 +61,6 @@ def partition(n):
 
 # Pigeonhole functions
 def socks(colors, number_needed):
-    return (number_needed - 1)*(colors)
+    return (number_needed - 1)*colors
 
 print(socks(2, 2))
