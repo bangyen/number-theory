@@ -2,9 +2,9 @@ import math
 import itertools
 
 functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
-                             "is_mersenne": "Lucas Lehmer mersenne prime test",
+                             "lucas_lehmer": "Lucas Lehmer mersenne prime test",
                              "prime_gen": "generates primes",
-                             "mersenne_gen": "generates mersenne_gen primes",
+                             "lucas_lehmer_gen": "generates mersenne primes",
                              "factor": "factors a number",
                              "partition": "partitions a number",
                              "primitive_root": "finds primitive roots modulo n",
@@ -28,9 +28,10 @@ def is_prime_wilson_theorem(n):
 
 
 def pythagorean_theorem(num):
+    #This is not finished
     for i in range(1, num ** 2):
-        pass
-
+        i=i+1
+        return i
 
 def is_prime(num):
     prime = True
@@ -97,7 +98,7 @@ def find_lcm(m, n):
     print(result)
 
 
-def totient_fuction(m, print_units):
+def totient_function(m, print_units):
     units = []
     for i in range(1, m + 1):
         if math.gcd(i, m) == 1:
