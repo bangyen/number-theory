@@ -1,9 +1,9 @@
-import math
 import statistics
-from number_theory_essentials import *
-from numbertheorylists import *
+import number_theory_essentials
+import math
 
 
+# from numbertheorylists import *
 
 
 def partial_sum_for_half_plus_fourth(n):
@@ -25,12 +25,12 @@ def lucas_lehmer(p):
 def lucas_lehmer_gen(n):
     answer = []
     for j in range(1, n):
-        if is_prime(j):
+        if number_theory_essentials.is_prime(j):
             if lucas_lehmer(j):
                 print(j, lucas_lehmer(j))
                 n = input("Continue?")
                 answer.append(j)
-                if "contin" not in n:
+                if "continue" not in n:
                     return answer
 
 
@@ -79,7 +79,7 @@ def pattern_mod_n_multipling_gen(end, start_1, start_2):
     return dictionary
 
 
-def patern_mod_n_adding_gen(end, start_1, start_2):
+def pattern_mod_n_adding_gen(end, start_1, start_2):
     lengths = []
     for mod in range(start_1, end):
         print("mod=" + str(mod) + ":")
@@ -104,12 +104,12 @@ def patern_mod_n_adding_gen(end, start_1, start_2):
 
 
 # noinspection PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined
-def pattern_mod_n_analytics_v1(end_1, start_1_1, start_2_1, end_2, start_1_2, start_2_2, function):
+def pattern_mod_n_analytics_v1(end_1, start_1_1, start_2_1, end_2, start_1_2, start_2_2, the_function):
     global first, last
-    if "add" in function:
-        first = patern_mod_n_adding_gen(end_1, start_1_1, start_2_1)
-        last = patern_mod_n_adding_gen(end_2, start_1_2, start_2_2)
-    elif "multiplication" in function:
+    if "add" in the_function:
+        first = pattern_mod_n_adding_gen(end_1, start_1_1, start_2_1)
+        last = pattern_mod_n_adding_gen(end_2, start_1_2, start_2_2)
+    elif "multiplication" in the_function:
         first = pattern_mod_n_multipling_gen(end_1, start_1_1, start_2_1)
         last = pattern_mod_n_multipling_gen(end_2, start_1_2, start_2_2)
     for key in first:
@@ -132,7 +132,7 @@ def addition_sums_mod_n_gen(start, stop):
 def patern_mod_n_adding_gen_primes(end, start_1, start_2):
     lengths = []
     for mod in range(start_1, end + 1):
-        if is_prime(mod):
+        if number_theory_essentials.is_prime(mod):
             print("mod=" + str(mod) + ":")
             for number in range(start_2, mod):
                 print("mod=" + str(mod) + " number=" + str(number) + ":" + str(pattern_mod_n_adding(number, mod)))
@@ -162,7 +162,7 @@ def prime_mult(n):
 
 def prime_mult_gen(n):
     for i in range(1, n):
-        if is_prime(i):
+        if number_theory_essentials.is_prime(i):
             prime_mult(i)
 
 
@@ -178,12 +178,12 @@ def powers_of_x_plus_1_mod_prime_gen(x, prime, stop_p):
 
 def totient_function_for_1_number(mod):
     for i in range(1, 1000000000):
-        if totient_fuction(i) == mod:
+        if number_theory_essentials.totient_function(i) == mod:
             print(i)
 
 
 def squares_mod_m(stop, m):
-    begining = nth_power(stop, 2)
+    begining = number_theory_essentials.nth_power(stop, 2)
     ans = []
     for item in begining:
         number = int(item) % m
@@ -192,7 +192,7 @@ def squares_mod_m(stop, m):
 
 
 def nth_power_mod_m(stop, m, power):
-    beginning = nth_power(stop, power)
+    beginning = number_theory_essentials.nth_power(stop, power)
     ans = []
     check = 1
     for item in beginning:
@@ -212,15 +212,15 @@ def distance(mod, number):
             if (number ** count) % mod != number:
                 ans.append((number ** count) % mod)
             else:
-                count = False
+                cont = False
                 return ans
             count = count + 1
     else:
         pass
 
 
-def special_excusion_partition(n, i):
-    x = partition(n)
+def special_exclusion_partition(n, i):
+    x = number_theory_essentials.partition(n)
     for item in x:
         if str(i) not in item:
             x.remove(item)
@@ -246,20 +246,20 @@ def string_function(string):
             two = two + 1
         elif item == "3":
             three = three + 1
-    return str(zero)+str(one)+str(two)+str(three)
+    return str(zero) + str(one) + str(two) + str(three)
 
 
 def primitive_root(n):
     primitive_roots = []
-    coprime_to_n = []
+    co_prime_to_n = []
     for i in range(1, n):
-        if gcd(n, i) == 1:
-            coprime_to_n.append(i)
+        if math.gcd(n, i) == 1:
+            co_prime_to_n.append(i)
     for i in range(1, n):
         powers_of_i = []
         for e in range(1, n):
             powers_of_i.append(i ** e % n)
-        if sorted(powers_of_i) == coprime_to_n:
+        if sorted(powers_of_i) == co_prime_to_n:
             primitive_roots.append(i)
     print(primitive_roots)
 
@@ -267,19 +267,16 @@ def primitive_root(n):
 def root_equivalents(modulus, root):
     root_equivalent = []
     for i in range(0, modulus):
-        if i**2 % modulus == root:
+        if i ** 2 % modulus == root:
             root_equivalent.append(i)
     print(root_equivalent)
 
 
-def sumset_exploration(set_A, set_B):
-    # a tool for exploring various sumsets
-    set_a = set(set_A)
-    set_b = set(set_B)
-    sumset = []
+def sum_set_exploration(set_a, set_b):
+    # a tool for exploring various sum_sets
+    sum_set = []
     for a in set_a:
         for b in set_b:
-            sumset.append(a + b)
-    sumset = set(sumset)
-    return sumset
-
+            sum_set.append(a + b)
+    sum_set = set(sum_set)
+    return sum_set
