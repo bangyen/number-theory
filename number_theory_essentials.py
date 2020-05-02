@@ -9,12 +9,8 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "partition": "partitions a number",
                              "primitive_root": "finds primitive roots modulo n",
                              "root_equivalents": "finds numbers modulo n equivalent to root given its square",
-                             "sumset_exploration": "a tool for exploring various sumsets",
+                             "sum_set_exploration": "a tool for exploring various sum sets",
                              "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure a certain number of items of the same color"}
-
-
-# import statistics
-# import cmath
 
 
 # Prime stuff
@@ -187,7 +183,7 @@ def root_equivalents(modulus, square_of_root):
     return root_equivalent
 
 
-def sumset_exploration(set_a, set_b):
+def sum_set_exploration(set_a, set_b):
     sum_set = []
     for a in set_a:
         for b in set_b:
