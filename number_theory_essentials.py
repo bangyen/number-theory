@@ -1,3 +1,4 @@
+
 import math
 import itertools
 
@@ -168,7 +169,7 @@ def primitive_root(n):
         if math.gcd(i, n) == 1:
             number = []
             power = pow(i, 2) % n
-            while (power != i) and (power != 0) and (power!=1):
+            while (power != i) and (power != 0) and (power != 1):
                 if power not in number:
                     number.append(power)
                 power = pow(power, 2) % n
@@ -177,35 +178,14 @@ def primitive_root(n):
     if len(primitive_roots) == 0:
         number = []
         for w, y in itertools.product(range(2, n), repeat=2):
-            number=[]
-            for x in range(1,n):
-                for z in range(1,n):
-                    print(w, x, y, z)
-                    if (math.gcd(w, n) == 1) and (math.gcd(y,n)==1):
-                        number.append((pow(w, x) * pow(y, z)) % n)
-                        print(number)
-                        if len(number) == n-1:
-                            return str(w) + ", " + str(y)
-
-    for i in range(1, n):
-        number = []
-        power = pow(i, 2) % n
-        while power != i:
-            number.append(power)
-            power = pow(power, 2) % n
-            if len(number) == n:
-                return i
-    if len(primitive_roots) == 0:
-        number = []
-        for w in range(1, n):
+            number = []
             for x in range(1, n):
-                for y in range(1, n):
-                    for z in range(1, n):
-                        if (pow(w, x) * pow(y, z)) % n not in number:
+                for z in range(1, n):
+                    if (math.gcd(w, n) == 1) and (math.gcd(y, n) == 1):
+                        if not (pow(w, x) * pow(y, z)) % n in number:
                             number.append((pow(w, x) * pow(y, z)) % n)
-                            if len(number) == n:
-                                return str(w) + ", " + str(y)
-
+            if len(number) == n / 2 - ((n / 2) % 1):
+                return str(w) + ", " + str(y)
     return "none"
 
 
@@ -213,7 +193,6 @@ def primitive_root_table_multiplication(modulus):
     modulus = int(modulus)
     name = "primitive_root_table" + str(modulus) + ".txt"
     file = open(name, 'w')
-
     file.write(
         '\\documentclass{article}\n' + '\\usepackage[utf8]{inputenc}\n' + '\\begin{document}\n' + '\\begin{tabular}{|c|c|}\n' + '     number & primitive root equivalent \\\ \n')
     primitive_roots = primitive_root(modulus)
@@ -223,27 +202,35 @@ def primitive_root_table_multiplication(modulus):
     if two_gens:
         list_of_numbers = {}
         for w, x, y, z in itertools.product(range(0, modulus), repeat=4):
-            if pow(w, x) * pow(y, z) % modulus not in modulus:
-                list_of_numbers.update({str(w) + str(x) + str(y) + str(z): (pow(w, x) * pow(y, z))})
+            if pow(int(w), int(x)) * pow(y, z) % int(modulus) not in list_of_numbers:
+                list_of_numbers.update({str(w) + " " + str(x) + " " + str(y) + " " + str(z): (pow(w, x) * pow(y, z))})
         for key in list_of_numbers:
-            line = key + " & " + list_of_numbers[key]
-            line = line + '\n'
+            new_key = ""
+            w = 0
+            x = 0
+            y = 0
+            z = 0
+            var = ""
+            for item in key:
+                if item == " ":
+                    if w == 0:
+                        w = var
+                    elif x == 0:
+                        x = var
+                    elif y == 0:
+                        y = var
+                    elif z == 0:
+                        z = var
+                    var = ""
+                else:
+                    var = var + item
+            new_key = "$" + str(w) + "^" + str(x) + "\\cdot" + str(y) + "^" + str(z) + "$"
+            line = new_key + " & " + "$" + str(modulus) + "^" + str(list_of_numbers[key]) + "$"
+            line = line + '\\\ ' + '\n'
             file.write(line)
+    else:
+        pass
     file.write('\\end{tabular}\n' + '\\end{document}\n')
-
-    primitive_roots = primitive_root(modulus)
-    two_gens = False
-    if "," in primitive_roots:
-        two_gens = True
-    if two_gens:
-        list_of_numbers = {}
-        for w in range(1, modulus):
-            for x in range(1, modulus):
-                for y in range(1, modulus):
-                    for z in range(1, modulus):
-                        if pow(w, x) * pow(y, z) % modulus not in modulus:
-                            list_of_numbers[str(w) + str(x) + str(y) + str(z), (pow(w, x) * pow(y, z))]
-
     file.close()
 
 
