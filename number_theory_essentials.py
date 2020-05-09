@@ -1,3 +1,4 @@
+
 import math
 import itertools
 
@@ -253,3 +254,4 @@ def sum_set_exploration(set_a, set_b):
 
 def pigeon_hole(colors, number_needed):
     return (number_needed - 1) * colors
+
