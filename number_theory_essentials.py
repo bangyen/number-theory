@@ -186,6 +186,26 @@ def primitive_root(n):
                         print(number)
                         if len(number) == n-1:
                             return str(w) + ", " + str(y)
+
+    for i in range(1, n):
+        number = []
+        power = pow(i, 2) % n
+        while power != i:
+            number.append(power)
+            power = pow(power, 2) % n
+            if len(number) == n:
+                return i
+    if len(primitive_roots) == 0:
+        number = []
+        for w in range(1, n):
+            for x in range(1, n):
+                for y in range(1, n):
+                    for z in range(1, n):
+                        if (pow(w, x) * pow(y, z)) % n not in number:
+                            number.append((pow(w, x) * pow(y, z)) % n)
+                            if len(number) == n:
+                                return str(w) + ", " + str(y)
+
     return "none"
 
 
@@ -193,6 +213,7 @@ def primitive_root_table_multiplication(modulus):
     modulus = int(modulus)
     name = "primitive_root_table" + str(modulus) + ".txt"
     file = open(name, 'w')
+
     file.write(
         '\\documentclass{article}\n' + '\\usepackage[utf8]{inputenc}\n' + '\\begin{document}\n' + '\\begin{tabular}{|c|c|}\n' + '     number & primitive root equivalent \\\ \n')
     primitive_roots = primitive_root(modulus)
@@ -209,6 +230,20 @@ def primitive_root_table_multiplication(modulus):
             line = line + '\n'
             file.write(line)
     file.write('\\end{tabular}\n' + '\\end{document}\n')
+
+    primitive_roots = primitive_root(modulus)
+    two_gens = False
+    if "," in primitive_roots:
+        two_gens = True
+    if two_gens:
+        list_of_numbers = {}
+        for w in range(1, modulus):
+            for x in range(1, modulus):
+                for y in range(1, modulus):
+                    for z in range(1, modulus):
+                        if pow(w, x) * pow(y, z) % modulus not in modulus:
+                            list_of_numbers[str(w) + str(x) + str(y) + str(z), (pow(w, x) * pow(y, z))]
+
     file.close()
 
 
