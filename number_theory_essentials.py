@@ -1,3 +1,4 @@
+
 import math
 import itertools
 
@@ -10,7 +11,8 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "primitive_root": "finds primitive roots modulo n",
                              "root_equivalents": "finds numbers modulo n equivalent to root given its square",
                              "sum_set_exploration": "a tool for exploring various sum sets",
-                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure a certain number of items of the same color"}
+                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure "
+                                            "a certain number of items of the same color"}
 
 
 # Prime stuff
@@ -24,10 +26,11 @@ def is_prime_wilson_theorem(n):
 
 
 def pythagorean_theorem(num):
-    #This is not finished
+    # This is not finished
     for i in range(1, num ** 2):
-        i=i+1
+        i = i + 1
         return i
+
 
 def is_prime(num):
     prime = True
@@ -162,17 +165,73 @@ def partition(n):
 
 def primitive_root(n):
     primitive_roots = []
-    coprime_to_n = []
-    for i in range(1, n):
-        if math.gcd(n, i) == 1:
-            coprime_to_n.append(i)
-    for i in range(1, n):
-        powers_of_i = []
-        for x in range(1, n):
-            powers_of_i.append(i ** x % n)
-        if sorted(powers_of_i) == coprime_to_n:
-            primitive_roots.append(i)
-    return primitive_roots
+    for i in range(2, n):
+        if math.gcd(i, n) == 1:
+            number = []
+            power = pow(i, 2) % n
+            while (power != i) and (power != 0) and (power != 1):
+                if power not in number:
+                    number.append(power)
+                power = pow(power, 2) % n
+                if len(number) == n:
+                    return i, number
+    if len(primitive_roots) == 0:
+        number = []
+        for w, y in itertools.product(range(2, n), repeat=2):
+            number = []
+            for x in range(1, n):
+                for z in range(1, n):
+                    if (math.gcd(w, n) == 1) and (math.gcd(y, n) == 1):
+                        if not (pow(w, x) * pow(y, z)) % n in number:
+                            number.append((pow(w, x) * pow(y, z)) % n)
+            if len(number) == n / 2 - ((n / 2) % 1):
+                return str(w) + ", " + str(y)
+    return "none"
+
+
+def primitive_root_table_multiplication(modulus):
+    modulus = int(modulus)
+    name = "primitive_root_table" + str(modulus) + ".txt"
+    file = open(name, 'w')
+    file.write(
+        '\\documentclass{article}\n' + '\\usepackage[utf8]{inputenc}\n' + '\\begin{document}\n' + '\\begin{tabular}{|c|c|}\n' + '     number & primitive root equivalent \\\ \n')
+    primitive_roots = primitive_root(modulus)
+    two_gens = False
+    if "," in str(primitive_roots):
+        two_gens = True
+    if two_gens:
+        list_of_numbers = {}
+        for w, x, y, z in itertools.product(range(0, modulus), repeat=4):
+            if pow(int(w), int(x)) * pow(y, z) % int(modulus) not in list_of_numbers:
+                list_of_numbers.update({str(w) + " " + str(x) + " " + str(y) + " " + str(z): (pow(w, x) * pow(y, z))})
+        for key in list_of_numbers:
+            new_key = ""
+            w = 0
+            x = 0
+            y = 0
+            z = 0
+            var = ""
+            for item in key:
+                if item == " ":
+                    if w == 0:
+                        w = var
+                    elif x == 0:
+                        x = var
+                    elif y == 0:
+                        y = var
+                    elif z == 0:
+                        z = var
+                    var = ""
+                else:
+                    var = var + item
+            new_key = "$" + str(w) + "^" + str(x) + "\\cdot" + str(y) + "^" + str(z) + "$"
+            line = new_key + " & " + "$" + str(modulus) + "^" + str(list_of_numbers[key]) + "$"
+            line = line + '\\\ ' + '\n'
+            file.write(line)
+    else:
+        pass
+    file.write('\\end{tabular}\n' + '\\end{document}\n')
+    file.close()
 
 
 def root_equivalents(modulus, square_of_root):
