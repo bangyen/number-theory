@@ -10,7 +10,8 @@ functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
                              "primitive_root": "finds primitive roots modulo n",
                              "root_equivalents": "finds numbers modulo n equivalent to root given its square",
                              "sum_set_exploration": "a tool for exploring various sum sets",
-                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure a certain number of items of the same color"}
+                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure "
+                                            "a certain number of items of the same color"}
 
 
 # Prime stuff
@@ -24,10 +25,11 @@ def is_prime_wilson_theorem(n):
 
 
 def pythagorean_theorem(num):
-    #This is not finished
+    # This is not finished
     for i in range(1, num ** 2):
-        i=i+1
+        i = i + 1
         return i
+
 
 def is_prime(num):
     prime = True
@@ -162,17 +164,45 @@ def partition(n):
 
 def primitive_root(n):
     primitive_roots = []
-    coprime_to_n = []
     for i in range(1, n):
-        if math.gcd(n, i) == 1:
-            coprime_to_n.append(i)
-    for i in range(1, n):
-        powers_of_i = []
-        for x in range(1, n):
-            powers_of_i.append(i ** x % n)
-        if sorted(powers_of_i) == coprime_to_n:
-            primitive_roots.append(i)
-    return primitive_roots
+        number = []
+        power = pow(i, 2) % n
+        while power != i:
+            number.append(power)
+            power = pow(power, 2) % n
+            if len(number) == n:
+                return i
+    if len(primitive_roots) == 0:
+        number = []
+        for w in range(1, n):
+            for x in range(1, n):
+                for y in range(1, n):
+                    for z in range(1, n):
+                        if (pow(w, x) * pow(y, z)) % n not in number:
+                            number.append((pow(w, x) * pow(y, z)) % n)
+                            if len(number) == n:
+                                return str(w) + ", " + str(y)
+
+    return "none"
+
+
+def primitive_root_table_multiplication(modulus):
+    modulus = int(modulus)
+    name = "primitive_root_table" + str(modulus) + ".txt"
+    file = open(name, 'w')
+    primitive_roots = primitive_root(modulus)
+    two_gens = False
+    if "," in primitive_roots:
+        two_gens = True
+    if two_gens:
+        list_of_numbers = {}
+        for w in range(1, modulus):
+            for x in range(1, modulus):
+                for y in range(1, modulus):
+                    for z in range(1, modulus):
+                        if pow(w, x) * pow(y, z) % modulus not in modulus:
+                            list_of_numbers[str(w) + str(x) + str(y) + str(z), (pow(w, x) * pow(y, z))]
+    file.close()
 
 
 def root_equivalents(modulus, square_of_root):
