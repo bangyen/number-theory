@@ -197,11 +197,11 @@ def primitive_root_table_multiplication(modulus):
         '\\documentclass{article}\n' + '\\usepackage[utf8]{inputenc}\n' + '\\begin{document}\n' + '\\begin{tabular}{|c|c|}\n' + '     number & primitive root equivalent \\\ \n')
     primitive_roots = primitive_root(modulus)
     two_gens = False
+    list_of_numbers = {}
     if "," in str(primitive_roots):
         two_gens = True
     if two_gens:
-        list_of_numbers = {}
-        for w, x, y, z in itertools.product(range(0, modulus), repeat=4):
+        for w, x, y, z in itertools.product(range(1, modulus, 2), repeat=4):
             if pow(int(w), int(x)) * pow(y, z) % int(modulus) not in list_of_numbers:
                 list_of_numbers.update({str(w) + " " + str(x) + " " + str(y) + " " + str(z): (pow(w, x) * pow(y, z))})
         for key in list_of_numbers:
@@ -229,7 +229,8 @@ def primitive_root_table_multiplication(modulus):
             line = line + '\\\ ' + '\n'
             file.write(line)
     else:
-        pass
+        for i in range(1, modulus):
+            list_of_numbers.update({"$"+str(i)+"$": "$"+str(primitive_roots)+"^"+str(i)+"$"})
     file.write('\\end{tabular}\n' + '\\end{document}\n')
     file.close()
 
@@ -253,3 +254,4 @@ def sum_set_exploration(set_a, set_b):
 
 def pigeon_hole(colors, number_needed):
     return (number_needed - 1) * colors
+
