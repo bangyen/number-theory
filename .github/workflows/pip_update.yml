@@ -29,3 +29,7 @@ jobs:
     - name: Upgrade setuptools
       run: |
         pip install --upgrade pip setuptools
+    - name: Upgrade setuptools
+      run: |
+        pip install setuptools wheel twine 
+
