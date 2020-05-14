@@ -25,7 +25,7 @@ jobs:
         pip install --upgrade pip
     - name: Upgrade wheel
       run: |
-        pip install -upgrade wheel
+        pip install -upgrade pip wheel
     - name: Upgrade setuptools
       run: |
-        pip install --upgrade setuptools
+        pip install --upgrade pip setuptools
