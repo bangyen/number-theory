@@ -1,5 +1,5 @@
 import statistics
-import number_theory_essentials
+from number_theory import number_theory_essentials
 import math
 
 
