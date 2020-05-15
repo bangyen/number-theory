@@ -25,11 +25,13 @@ jobs:
         pip install --upgrade pip
     - name: Upgrade wheel
       run: |
-        pip install -upgrade pip wheel
+        pip install --upgrade wheel
     - name: Upgrade setuptools
       run: |
-        pip install --upgrade pip setuptools
-    - name: Upgrade setuptools
+        pip install --upgrade setuptools
+    - name: Upgrade twine
       run: |
-        pip install setuptools wheel twine 
+        pip uninstall twine
+        pip download twine
+        pip install twine 
 
