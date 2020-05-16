@@ -1,0 +1,3 @@
+import number_theory_essentials.py
+print(number_theory_essentials.is_prime_fermats_little_thm(26))
+playground.run
