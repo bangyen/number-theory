@@ -24,6 +24,13 @@ def is_prime_wilson_theorem(n):
         return False
 
 
+def is_prime_fermats_little_thm(num):
+    for i in range(2,num):
+        if not ((i ** (num - 1)) % num == 1):
+            return False
+    return True
+
+
 def pythagorean_theorem(num):
     # This is not finished
     for i in range(1, num ** 2):
