@@ -21,6 +21,20 @@ def lucas_lehmer(p):
     if s == 0:
         return True, pow(2, p) - 1
 
+# function that returns all primes up to that number. 
+def sieve_numbers(num):
+    square_root_sieve = []
+    sieve = range(2,num+1)
+    for i in range(1,math.floor(math.sqrt(num))+1):
+        if i in sieve:
+            square_root_sieve.append(i)
+            new_sieve = []
+            for x in sieve:
+                if x != i and x%i != 0:
+                    new_sieve.append(x)
+            sieve = new_sieve 
+    return square_root_sieve + sieve
+    
 
 def lucas_lehmer_gen(n):
     answer = []
