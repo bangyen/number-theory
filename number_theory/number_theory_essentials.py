@@ -34,7 +34,8 @@ def pythagorean_theorem(num):
 def is_prime(num):
     prime = True
     if (num % 2 != 0 or 2) and num != 1:
-        for i in range(2, num):
+        num = int(num)
+        for i in range(2, int(math.ceil(math.sqrt(num)))):
             if num % i == 0:
                 prime = False
     else:
