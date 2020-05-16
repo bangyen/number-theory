@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/number-theory-python-files/playground.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/number-theory-python-files/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory/number_theory.py" beforeDir="false" afterPath="$PROJECT_DIR$/number-theory-python-files/number_theory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory/number_theory_essentials.py" beforeDir="false" afterPath="$PROJECT_DIR$/number-theory-python-files/number_theory_essentials.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory/numbertheorylists.py" beforeDir="false" afterPath="$PROJECT_DIR$/number-theory-python-files/numbertheorylists.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/number-theory-python-files/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +55,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589592095442">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589592454314">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1589592095442" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1589592454314" />
     <state x="433" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589591151525">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
