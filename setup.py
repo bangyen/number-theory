@@ -3,8 +3,8 @@ from distutils.core import setup
 setup(
     name = 'my_python_package',
     packages = ['my_python_package'],
-    version = 'version number',  # Ideally should be same as your GitHub release tag varsion
-    description = 'description',
+    version = '2.2.4',  # Ideally should be same as your GitHub release tag varsion
+    description = 'A Number Theory package for python',
     author = '',
     author_email = '',
     url = 'github package source url',
