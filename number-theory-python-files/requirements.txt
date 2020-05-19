@@ -1,3 +1,0 @@
-statistics
-packaging==20.3
-pytest==5.4.2
