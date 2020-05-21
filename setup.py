@@ -1,14 +1,22 @@
-from distutils.core import setup
+import setuptools
 
-setup(
-    name = 'my_python_package',
-    packages = ['my_python_package'],
-    version = 'version number',  # Ideally should be same as your GitHub release tag varsion
-    description = 'description',
-    author = '',
-    author_email = '',
-    url = 'github package source url',
-    download_url = 'download link you saved',
-    keywords = ['tag1', 'tag2'],
-    classifiers = [],
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="ashwin06", # Replace with your own username
+    version="2.3",
+    author="Ashwin Naren",
+    author_email="arihant2math@gmail.com",
+    description="A large number theory package",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/pypa/sampleproject",
+    packages=setuptools.find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache 2.0 License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
 )
