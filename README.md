@@ -1,2 +1,2 @@
 # Number Theory
-This is a large Number Theory package for python.
+This is a **large** Number Theory _package_ for python.
