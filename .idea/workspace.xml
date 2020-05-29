@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory.py" beforeDir="false" afterPath="$PROJECT_DIR$/number_theory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/number_theory_essentials.py" beforeDir="false" afterPath="$PROJECT_DIR$/number_theory_essentials.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

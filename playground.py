@@ -1,2 +1,2 @@
-import number_theory_essentials.py
-print(number_theory_essentials.is_prime_fermats_little_thm(26))
+import number_theory_essentials
+print(number_theory_essentials.is_prime_fermats_little_theorem(26))

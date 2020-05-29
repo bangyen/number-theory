@@ -1,10 +1,11 @@
 import math
 import itertools
 
-functions_in_this_package = {"is_prime": "is a primality test Miller-Rabin",
+functions_in_this_package = {"is_prime_wilson_theorem(n)": "",
+                             "is_prime": "is a primality test Miller-Rabin",
                              "lucas_lehmer": "is a Lucas Lehmer mersenne prime test",
                              "prime_gen": "generates primes",
-                             "lucas_lehm er_gen": "generates mersenne primes",
+                             "lucas_lehmer_gen": "generates mersenne primes",
                              "factor": "factors a number",
                              "partition": "partitions a number",
                              "primitive_root": "finds primitive roots modulo n",
@@ -24,8 +25,8 @@ def is_prime_wilson_theorem(n):
         return False
 
 
-def is_prime_fermats_little_thm(num):
-    for i in range(2,num):
+def is_prime_fermats_little_theorem(num):
+    for i in range(2, num):
         if not ((i ** (num - 1)) % num == 1):
             return False
     return True
