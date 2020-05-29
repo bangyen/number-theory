@@ -1,17 +1,17 @@
 import math
 import itertools
 
-functions_in_this_package = {"is_prime": "a primality test Miller-Rabin",
-                             "lucas_lehmer": "Lucas Lehmer mersenne prime test",
+functions_in_this_package = {"is_prime": "is a primality test Miller-Rabin",
+                             "lucas_lehmer": "is a Lucas Lehmer mersenne prime test",
                              "prime_gen": "generates primes",
-                             "lucas_lehmer_gen": "generates mersenne primes",
+                             "lucas_lehm er_gen": "generates mersenne primes",
                              "factor": "factors a number",
                              "partition": "partitions a number",
                              "primitive_root": "finds primitive roots modulo n",
                              "root_equivalents": "finds numbers modulo n equivalent to root given its square",
                              "sum_set_exploration": "a tool for exploring various sum sets",
-                             "pigeon_hole": "finds number of theoretical items needed to be pulled blindly to ensure "
-                                            "a certain number of items of the same color"}
+                             "pigeon_hole": "finds number of theoretical items needed to be selected randomly to "
+                                            "ensure a certain number of items of the same color"}
 
 
 # Prime stuff
