@@ -1,2 +1,0 @@
-import number_theory_essentials
-print(number_theory_essentials.is_prime_fermats_little_theorem(26))
