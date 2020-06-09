@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="number-theory", # Replace with your own username
-    version="2.4",
+    version="1.2",
     author="Ashwin Naren",
     author_email="arihant2math@gmail.com",
     description="A large number theory package",
