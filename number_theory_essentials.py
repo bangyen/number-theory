@@ -195,7 +195,7 @@ def primitive_root(n):
             while (power != i) and (power != 0) and (power != 1):
                 if power not in number:
                     number.append(power)
-                power = pow(power, 2) % n
+                power = pow(2, 2) % n
                 if len(number) == n:
                     return i, number
     if len(primitive_roots) == 0:
