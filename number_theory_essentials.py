@@ -108,8 +108,12 @@ def step_in_euclidian_algorithm(a, b):
     return a, b, x, y
 
 
-def euclidean_algorithm(a, b):
-    x = step_in_euclidian_algorithm(a, b)
+def euclidean_algorithm(a, b, want_fancy):
+    li = step_in_euclidian_algorithm(a, b)
+    while li[3] != 0:
+        li = step_in_euclidian_algorithm(li[1], li[3])
+    if want_fancy:
+        return str(li[0])+" = "+str(li[1])+"("+str(li[2])+")"+"+"+str(li[3])
 
 
 def extended_euclidean_algorithm(number):
