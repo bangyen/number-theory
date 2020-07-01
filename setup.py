@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="math-basicgit ",
+    name="number-theory", # Replace with your own username
     version="2.4",
     author="Ashwin Naren",
     author_email="arihant2math@gmail.com",
