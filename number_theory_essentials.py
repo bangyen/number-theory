@@ -108,6 +108,13 @@ def extended_euclidean_algorithm(number):
     pass
 
 
+def repeated_squaring(number, power):
+    ans = 1
+    for i in range(1, power+1):
+        ans = ans*number
+    print(ans)
+
+
 def find_lcm(m, n):
     result = m * n / math.gcd(m, n)
     print(result)
