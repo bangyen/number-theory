@@ -100,6 +100,14 @@ def factor(number):
     return result
 
 
+def euclidean_algorithm(number):
+    pass
+
+
+def extended_euclidean_algorithm(number):
+    pass
+
+
 def find_lcm(m, n):
     result = m * n / math.gcd(m, n)
     print(result)

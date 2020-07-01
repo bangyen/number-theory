@@ -59,8 +59,14 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="venv">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="pep 8">
+      <change afterPath="$PROJECT_DIR$/dist/number-theory-2.4.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/number_theory-2.4-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/number_theory.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/number_theory.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/number_theory.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/number_theory.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +109,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
@@ -189,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593624877121</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pep 8">
+      <created>1593627634957</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593627634957</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +238,8 @@
     <MESSAGE value="Better documentation" />
     <MESSAGE value="Edited README.md" />
     <MESSAGE value="venv" />
-    <option name="LAST_COMMIT_MESSAGE" value="venv" />
+    <MESSAGE value="pep 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="pep 8" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="161" key="#Plugins" timestamp="1591903460953">
