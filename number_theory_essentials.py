@@ -100,8 +100,16 @@ def factor(number):
     return result
 
 
-def euclidean_algorithm(number):
-    pass
+def step_in_euclidian_algorithm(a, b):
+    # a=b(x)+y
+    y = a % b
+    # a-y=bx
+    x = (a - y) / b
+    return a, b, x, y
+
+
+def euclidean_algorithm(a, b):
+    x = step_in_euclidian_algorithm(a, b)
 
 
 def extended_euclidean_algorithm(number):
@@ -110,8 +118,8 @@ def extended_euclidean_algorithm(number):
 
 def repeated_squaring(number, power):
     ans = 1
-    for i in range(1, power+1):
-        ans = ans*number
+    for i in range(1, power + 1):
+        ans = ans * number
     print(ans)
 
 
