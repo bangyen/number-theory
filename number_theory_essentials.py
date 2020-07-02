@@ -114,6 +114,8 @@ def euclidean_algorithm(a, b, want_fancy):
         li = step_in_euclidian_algorithm(li[1], li[3])
     if want_fancy:
         return str(li[0])+" = "+str(li[1])+"("+str(li[2])+")"+"+"+str(li[3])
+    else:
+        print(li)
 
 
 def extended_euclidean_algorithm(number):
