@@ -122,9 +122,8 @@ def find_lcm(m, n):
 
 
 def totient_function(m, print_units):
-    ans = len(
-      [i for i in range(1, m + 1) if math.gcd(i, m) == 1]
-    )
+    units = [i for i in range(1, m + 1) if math.gcd(i, m) == 1]
+    ans = len(units)
     if print_units:
         return ans, units
     else:
