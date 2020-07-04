@@ -78,11 +78,11 @@ def stat_dict(lengths, print_len=False):
     median = statistics.median(lengths)
     med_high = statistics.median_high(lengths)
     med_low = statistics.median_low(lengths)
-    print(f"The mean is: {mean}")
-    print(f"The median is: {median}")
-    print(f"The max is: {max(lengths)}")
-    print(f"The min is: {min(lengths)}")
-    print(f"Interquartile range: {med_high - med_low}")
+    print("The mean is: %s" mean)
+    print("The median is: %s" % median)
+    print("The max is: %s" % max(lengths))
+    print("The min is: %s" % min(lengths))
+    print("Interquartile range: %s" (med_high - med_low))
     dictionary = {
         "Interquartile_range": str(med_high - med_low),
         "1st quartile": str(med_low),
@@ -239,7 +239,7 @@ def special_exclusion_partition(n, i):
 def string_function(string):
     string = str(string)
     return '%s%s%s%s' % tuple(
-        string.count(f'{k}') for k in range(4)
+        string.count(str(k)) for k in range(4)
     )
 
 
