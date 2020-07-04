@@ -1,0 +1,3 @@
+statistics
+pytest>=5.4.3
+packaging>=20.4
