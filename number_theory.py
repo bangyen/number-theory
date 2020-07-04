@@ -157,23 +157,6 @@ def patern_mod_n_adding_gen_primes(end, start_1, start_2):
                 z = int(len(pattern_mod_n_adding(number, mod)))
                 print("The length is " + str(z))
                 lengths.append(z)
-    print(lengths)
-    mean = statistics.mean(lengths)
-    median = statistics.median(lengths)
-    med_high = statistics.median_high(lengths)
-    med_low = statistics.median_low(lengths)
-    print(f"The mean is: {mean}")
-    print(f"The median is: {median}")
-    print(f"The max is: {max(lengths)}")
-    print(f"The min is: {min(lengths)}")
-    print(f"Interquartile range: {med_high - med_low}")
-    dictionary = {
-        "Interquartile_range": str(med_high - med_low),
-        "1st quartile": str(med_low),
-        "Third_quartiles": str(med_high),
-        "Mean": float(mean),
-        "median": median
-    }
     return stat_dict(lengths, True)
 
 
