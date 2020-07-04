@@ -78,11 +78,11 @@ def stat_dict(lengths, print_len=False):
     median = statistics.median(lengths)
     med_high = statistics.median_high(lengths)
     med_low = statistics.median_low(lengths)
-    print("The mean is: %s" mean)
+    print("The mean is: %s" % mean)
     print("The median is: %s" % median)
     print("The max is: %s" % max(lengths))
     print("The min is: %s" % min(lengths))
-    print("Interquartile range: %s" (med_high - med_low))
+    print("Interquartile range: %s" % (med_high - med_low))
     dictionary = {
         "Interquartile_range": str(med_high - med_low),
         "1st quartile": str(med_low),
