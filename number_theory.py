@@ -71,6 +71,27 @@ def pattern_mod_n_multipling(number, mod):
     return result
 
 
+def stat_dict(lengths, print_len=False):
+    if print_len:
+        print(lengths)
+    mean = statistics.mean(lengths)
+    median = statistics.median(lengths)
+    med_high = statistics.median_high(lengths)
+    med_low = statistics.median_low(lengths)
+    print(f"The mean is: {mean}")
+    print(f"The median is: {median}")
+    print(f"The max is: {max(lengths)}")
+    print(f"The min is: {min(lengths)}")
+    print(f"Interquartile range: {med_high - med_low}")
+    dictionary = {
+        "Interquartile_range": str(med_high - med_low),
+        "1st quartile": str(med_low),
+        "Third_quartiles": str(med_high),
+        "Mean": float(mean), "median": median
+    }
+    return dictionary
+
+
 def pattern_mod_n_multipling_gen(end, start_1, start_2):
     lengths = []
     for i in range(start_1, end):
@@ -83,15 +104,7 @@ def pattern_mod_n_multipling_gen(end, start_1, start_2):
             print("The length is " + str(z))
             lengths.append(z)
             print(lengths)
-    print("The mean is:" + str(statistics.mean(lengths)))
-    print("The median is:" + str(statistics.median(lengths)))
-    print("The max is:" + str(max(lengths)))
-    print("The min is:" + str(min(lengths)))
-    dictionary = {"Interquartile_range": str(statistics.median_high(lengths) - statistics.median_low(lengths)),
-                  "1st quartile": str(statistics.median_low(lengths)),
-                  "Third_quartiles": str(statistics.median_high(lengths)),
-                  "mean": float(statistics.mean(lengths)), "median": statistics.median(lengths)}
-    return dictionary
+    return stat_dict(lengths)
 
 
 def pattern_mod_n_adding_gen(end, start_1, start_2):
@@ -105,17 +118,7 @@ def pattern_mod_n_adding_gen(end, start_1, start_2):
             z = int(len(pattern_mod_n_adding(number, mod)))
             print("The length is " + str(z))
             lengths.append(z)
-    print(lengths)
-    print("The mean is:" + str(statistics.mean(lengths)))
-    print("The median is:" + str(statistics.median(lengths)))
-    print("The max is:" + str(max(lengths)))
-    print("The min is:" + str(min(lengths)))
-    print("Interquartile range:" + str(statistics.median_high(lengths) - statistics.median_low(lengths)))
-    dictionary = {"Interquartile_range": str(statistics.median_high(lengths) - statistics.median_low(lengths)),
-                  "1st quartile": str(statistics.median_low(lengths)),
-                  "Third_quartiles": str(statistics.median_high(lengths)),
-                  "mean": float(statistics.mean(lengths)), "median": statistics.median(lengths)}
-    return dictionary
+    return stat_dict(lengths, True)
 
 
 # noinspection PyGlobalUndefined,PyGlobalUndefined,PyGlobalUndefined
@@ -155,16 +158,23 @@ def patern_mod_n_adding_gen_primes(end, start_1, start_2):
                 print("The length is " + str(z))
                 lengths.append(z)
     print(lengths)
-    print("The mean is:" + str(statistics.mean(lengths)))
-    print("The median is:" + str(statistics.median(lengths)))
-    print("The max is:" + str(max(lengths)))
-    print("The min is:" + str(min(lengths)))
-    print("Interquartile range:" + str(statistics.median_high(lengths) - statistics.median_low(lengths)))
-    dictionary = {"Interquartile_range": str(statistics.median_high(lengths) - statistics.median_low(lengths)),
-                  "1st quartile": str(statistics.median_low(lengths)),
-                  "Third_quartiles": str(statistics.median_high(lengths)),
-                  "mean": float(statistics.mean(lengths)), "median": statistics.median(lengths)}
-    return dictionary
+    mean = statistics.mean(lengths)
+    median = statistics.median(lengths)
+    med_high = statistics.median_high(lengths)
+    med_low = statistics.median_low(lengths)
+    print(f"The mean is: {mean}")
+    print(f"The median is: {median}")
+    print(f"The max is: {max(lengths)}")
+    print(f"The min is: {min(lengths)}")
+    print(f"Interquartile range: {med_high - med_low}")
+    dictionary = {
+        "Interquartile_range": str(med_high - med_low),
+        "1st quartile": str(med_low),
+        "Third_quartiles": str(med_high),
+        "Mean": float(mean),
+        "median": median
+    }
+    return stat_dict(lengths, True)
 
 
 def prime_mult(n):
@@ -198,12 +208,8 @@ def totient_function_for_1_number(mod):
 
 
 def squares_mod_m(stop, m):
-    begining = number_theory_essentials.nth_power(stop, 2)
-    ans = []
-    for item in begining:
-        number = int(item) % m
-        ans.append(number)
-    return ans
+    beginning = number_theory_essentials.nth_power(stop, 2)
+    return [int(item) % m for item in beginning]
 
 
 def nth_power_mod_m(stop, m, power):
@@ -248,28 +254,18 @@ def special_exclusion_partition(n, i):
 #     inter=1
 
 def string_function(string):
-    zero = 0
-    one = 0
-    two = 0
-    three = 0
-    for item in str(string):
-        if item == "0":
-            zero = zero + 1
-        elif item == "1":
-            one = one + 1
-        elif item == "2":
-            two = two + 1
-        elif item == "3":
-            three = three + 1
-    return str(zero) + str(one) + str(two) + str(three)
+    string = str(string)
+    return '%s%s%s%s' % tuple(
+        string.count(f'{k}') for k in range(4)
+    )
 
 
 def primitive_root(n):
     primitive_roots = []
-    co_prime_to_n = []
-    for i in range(1, n):
-        if math.gcd(n, i) == 1:
-            co_prime_to_n.append(i)
+    co_prime_to_n = [
+        i for i in range(1, n)
+        if math.gcd(n, i) == 1
+    ]
     for i in range(1, n):
         powers_of_i = []
         for e in range(1, n):
@@ -280,18 +276,13 @@ def primitive_root(n):
 
 
 def root_equivalents(modulus, root):
-    root_equivalent = []
-    for i in range(0, modulus):
-        if i ** 2 % modulus == root:
-            root_equivalent.append(i)
+    root_equivalent = [
+        i for i in range(0, modulus)
+        if i ** 2 % modulus == root
+    ]
     print(root_equivalent)
 
 
 def sum_set_exploration(set_a, set_b):
     # a tool for exploring various sum_sets
-    sum_set = []
-    for a in set_a:
-        for b in set_b:
-            sum_set.append(a + b)
-    sum_set = set(sum_set)
-    return sum_set
+    return {a + b for a in set_a for b in set_b}
