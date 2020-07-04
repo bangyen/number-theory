@@ -19,17 +19,13 @@ functions_in_this_package = {"is_prime_wilson_theorem(n)": "",
 
 
 def is_prime_wilson_theorem(n):
-    if math.factorial(n - 1) % n == n - 1:
-        return True
-    else:
-        return False
+    return math.factorial(n - 1) % n == n - 1
 
 
 def is_prime_fermats_little_theorem(num):
-    for i in range(2, num):
-        if not ((i ** (num - 1)) % num == 1):
-            return False
-    return True
+    return all(
+        i ** (num - 1) % num == 1 for i in range(2, num)
+    )
 
 
 def pythagorean_theorem(num):
@@ -52,11 +48,9 @@ def is_prime(num):
 
 
 def prime_gen(start, stop):
-    ans = []
-    for i in range(start, stop + 1):
-        if is_prime(i):
-            ans.append(i)
-    return ans
+    return [
+        i for i in range(start, stop + 1) if is_prime(i)
+    ]
 
 
 def lucas_lehmer(p):
@@ -93,18 +87,13 @@ def prime_factor(number):
 
 
 def factor(number):
-    result = []
-    for i in range(1, number + 1):
-        if number % i == 0:
-            result.append(i)
-    return result
+    return [
+        i for i in range(1, number + 1) if not number % i
+    ]
 
 
 def step_in_euclidian_algorithm(a, b):
-    # a=b(x)+y
-    y = a % b
-    # a-y=bx
-    x = (a - y) / b
+    x, y = divmod(a, b)
     return a, b, x, y
 
 
@@ -113,7 +102,7 @@ def euclidean_algorithm(a, b, want_fancy):
     while li[3] != 0:
         li = step_in_euclidian_algorithm(li[1], li[3])
     if want_fancy:
-        return str(li[0])+" = "+str(li[1])+"("+str(li[2])+")"+"+"+str(li[3])
+        return '%s = %s(%s) + %s' % li
 
 
 def extended_euclidean_algorithm(number):
@@ -122,8 +111,8 @@ def extended_euclidean_algorithm(number):
 
 def repeated_squaring(number, power):
     ans = 1
-    for i in range(1, power + 1):
-        ans = ans * number
+    for i in range(power):
+        ans *= number
     print(ans)
 
 
@@ -133,30 +122,24 @@ def find_lcm(m, n):
 
 
 def totient_function(m, print_units):
-    units = []
-    for i in range(1, m + 1):
-        if math.gcd(i, m) == 1:
-            units.append(i)
+    units = [i for i in range(1, m + 1) if math.gcd(i, m) == 1]
     ans = len(units)
-    if not print_units:
-        return ans
-    else:
+    if print_units:
         return ans, units
+    else:
+        return ans
 
 
 def nth_power(stop, power):
-    ans = []
-    for i in range(1, stop + 1):
-        power = i ** power
-        ans.append(power)
-    return ans
+    return [
+        i ** power for i in range(1, stop + 1)
+    ]
 
 
 def pascal_triangle(n, x):
     ans = 1
     for i in range(0, x + 1):
-        number = n - i
-        ans = number * ans
+        ans *= n - i
     ans = ans / math.factorial(x)
     return int(ans)
 
@@ -240,10 +223,7 @@ def primitive_root_table_multiplication(modulus):
             if pow(int(w), int(x)) * pow(y, z) % int(modulus) not in list_of_numbers:
                 list_of_numbers.update({str(w) + " " + str(x) + " " + str(y) + " " + str(z): (pow(w, x) * pow(y, z))})
         for key in list_of_numbers:
-            w = 0
-            x = 0
-            y = 0
-            z = 0
+            w = x = y = z = 0
             var = ""
             for item in key:
                 if item == " ":
@@ -270,11 +250,10 @@ def primitive_root_table_multiplication(modulus):
 
 
 def root_equivalents(modulus, square_of_root):
-    root_equivalent = []
-    for i in range(0, modulus):
-        if i ** 2 % modulus == square_of_root:
-            root_equivalent.append(i)
-    return root_equivalent
+    return [
+      i for i in range(0, modulus)
+      if i ** 2 % modulus == square_of_root
+    ]
 
 
 def sum_set_exploration(set_a, set_b):
