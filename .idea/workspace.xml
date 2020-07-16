@@ -60,7 +60,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="pep 8">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593660632988</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commit">
+      <created>1594575418469</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1594575418469</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +310,8 @@
     <MESSAGE value="new functions" />
     <MESSAGE value="finished a function" />
     <MESSAGE value="pep 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="pep 8" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="161" key="#Plugins" timestamp="1591903460953">
