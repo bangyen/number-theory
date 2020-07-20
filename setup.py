@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="number-theory",  # Replace with your own username
-    version="2.4.1",
+    name="number-theory",
+    version="2.4.2",
     author="Ashwin Naren",
     author_email="arihant2math@gmail.com",
     description="A large number theory package",
@@ -18,7 +18,7 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.4',
     install_requires=[
         'statistics',
         'pytest>=5.4.3',

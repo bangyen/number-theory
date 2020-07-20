@@ -1,7 +1,7 @@
 import math
 import itertools
 
-functions_in_this_package = {"is_prime_wilson_theorem(n)": "",
+functions_in_this_package = {"is_prime_wilson_theorem(n)": "is a primality test",
                              "is_prime": "is a primality test Miller-Rabin",
                              "lucas_lehmer": "is a Lucas Lehmer mersenne prime test",
                              "prime_gen": "generates primes",
@@ -47,10 +47,16 @@ def is_prime(num):
     return prime
 
 
-def prime_gen(start, stop):
-    return [
-        i for i in range(start, stop + 1) if is_prime(i)
-    ]
+def prime_gen(start, stop, want_list=False):
+    if start is None:
+        start=1
+    if want_list:
+        ans = []
+        for i in range(start, stop):
+            if is_prime_fermats_little_theorem(i):
+                ans.append(i)
+    else:
+        return [i for i in range(start, stop + 1) if is_prime(i)]
 
 
 def lucas_lehmer(p):
@@ -102,13 +108,14 @@ def euclidean_algorithm(a, b, want_fancy):
     while li[3] != 0:
         li = step_in_euclidian_algorithm(li[1], li[3])
     if want_fancy:
-        return str(li[0])+" = "+str(li[1])+"("+str(li[2])+")"+"+"+str(li[3])
+        return str(li[0]) + " = " + str(li[1]) + "(" + str(li[2]) + ")" + "+" + str(li[3])
     else:
         print(li)
 
 
-def extended_euclidean_algorithm(number):
-    pass
+def extended_euclidean_algorithm():
+    # should have param number
+    return NotImplemented
 
 
 def repeated_squaring(number, power):
@@ -252,10 +259,7 @@ def primitive_root_table_multiplication(modulus):
 
 
 def root_equivalents(modulus, square_of_root):
-    return [
-      i for i in range(0, modulus)
-      if i ** 2 % modulus == square_of_root
-    ]
+    return [i for i in range(0, modulus) if i ** 2 % modulus == square_of_root]
 
 
 def sum_set_exploration(set_a, set_b):
