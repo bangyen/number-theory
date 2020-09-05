@@ -110,7 +110,7 @@ def euclidean_algorithm(a, b, want_fancy):
     if want_fancy:
         return str(li[0]) + " = " + str(li[1]) + "(" + str(li[2]) + ")" + "+" + str(li[3])
     else:
-        print(li)
+        return li
 
 
 def extended_euclidean_algorithm():
@@ -145,22 +145,16 @@ def nth_power(stop, power):
     ]
 
 
-def pascal_triangle(n, x):
-    ans = 1
-    for i in range(0, x + 1):
-        ans *= n - i
-    ans = ans / math.factorial(x)
-    return int(ans)
+def pascal_triangle(n, k):
+    return int(((math.factorial(n))/(math.factorial(n-k)*math.factorial(k))))
 
 
 def pascals_triangle(stop):
     ans = []
     for n in range(1, stop + 1):
-        length = [1]
-        for k in range(1, n):
+        length = []
+        for k in range(0, n+1):
             length.append(pascal_triangle(n, k))
-        length.append(1)
-        print(length)
         ans.append(length)
     return ans
 
