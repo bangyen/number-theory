@@ -60,9 +60,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/number-theory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/number-theory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory_essentials.py" beforeDir="false" afterPath="$PROJECT_DIR$/number_theory_essentials.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grow_number_theory_lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/grow_number_theory_lists.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/help.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.py" beforeDir="false" afterPath="$PROJECT_DIR$/number_theory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory_essentials.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,12 +118,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coding-for-kidz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Settings.Markdown" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -205,7 +213,7 @@
   <component name="SQLPlugin.ProjectConfiguration">
     <queries />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -353,81 +361,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="161" key="#Plugins" timestamp="1591903460953">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="508" y="180" key="FileChooserDialogImpl" timestamp="1609621811425">
+      <screen x="0" y="23" width="1440" height="791" />
     </state>
-    <state x="552" y="161" key="#Plugins/0.0.1920.1040@0.0.1920.1040" timestamp="1591903460953" />
-    <state x="440" y="94" key="#Project_Structure" timestamp="1593627603322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="508" y="180" key="FileChooserDialogImpl/0.23.1440.791@0.23.1440.791" timestamp="1609621811425" />
+    <state x="221" y="57" key="SettingsEditor" timestamp="1609621854483">
+      <screen x="0" y="23" width="1440" height="791" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1593627603322" />
-    <state x="245" y="129" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593832574307">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1589592454314" />
-    <state x="245" y="129" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593832574307" />
-    <state x="433" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589591151525">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="433" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1589591151525" />
-    <state x="148" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594575273187">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="148" y="101" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1594575273187" />
-    <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1597937368297">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593734290503" />
-    <state x="987" y="370" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1597937368297" />
-    <state width="1746" height="397" key="GridCell.Tab.0.bottom" timestamp="1597715097153">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590718868911" />
-    <state width="1746" height="397" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1597715097153" />
-    <state width="1746" height="397" key="GridCell.Tab.0.center" timestamp="1597715097153">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590718868911" />
-    <state width="1746" height="397" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1597715097153" />
-    <state width="1746" height="397" key="GridCell.Tab.0.left" timestamp="1597715097152">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590718868910" />
-    <state width="1746" height="397" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1597715097152" />
-    <state width="1746" height="397" key="GridCell.Tab.0.right" timestamp="1597715097153">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590718868911" />
-    <state width="1746" height="397" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1597715097153" />
-    <state x="920" y="462" key="MultipleFileMergeDialog" timestamp="1595647970204">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="920" y="462" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1595647970204" />
-    <state x="461" y="165" width="984" height="710" key="SettingsEditor" timestamp="1593662525279">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" width="984" height="710" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593662525279" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590720632569">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590720632569" />
-    <state x="677" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592269880035">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1589589661284" />
-    <state x="677" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592269880035" />
-    <state x="342" y="181" key="new project wizard" timestamp="1590696759258">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="181" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1590696759258" />
-    <state x="520" y="283" key="scopes" timestamp="1589479158410">
-      <screen x="0" y="23" width="1440" height="788" />
-    </state>
-    <state x="520" y="283" key="scopes/0.23.1440.788@0.23.1440.788" timestamp="1589479158410" />
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1593662441271">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593662441271" />
+    <state x="221" y="57" key="SettingsEditor/0.23.1440.791@0.23.1440.791" timestamp="1609621854483" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

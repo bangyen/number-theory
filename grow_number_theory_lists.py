@@ -1,5 +1,5 @@
 import numbertheorylists
-import number_theory_essentials
+import __init__
 far = input("How much do you want to grow the primes list")
 numbertheorylists.primes = []
-numbertheorylists.primes = number_theory_essentials.prime_gen(1, int(far)+1, want_list=True)
+numbertheorylists.primes = __init__.prime_gen(1, int(far) + 1, want_list=True)

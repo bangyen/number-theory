@@ -1,133 +1,252 @@
-from tkinter import *
-import random
+import math
+import itertools
 
 
-class GUIDie(Canvas):
-    '''6-sided Die class for GUI'''
-
-    def __init__(self, master, valueList=[1, 2, 3, 4, 5, 6], colorList=['black'] * 6):
-        '''GUIDie(master,[valueList,colorList]) -> GUIDie
-        creates a GUI 6-sided die
-          valueList is the list of values (1,2,3,4,5,6 by default)
-          colorList is the list of colors (all black by default)'''
-        # create a 60x60 white canvas with a 5-pixel grooved border
-        Canvas.__init__(self, master, width=60, height=60, bg='white', \
-                        bd=5, relief=GROOVE)
-        # store the valuelist and colorlist
-        self.valueList = valueList
-        self.colorList = colorList
-        # initialize the top value
-        self.top = 1
-
-    def get_top(self):
-        '''GUIDie.get_top() -> int
-        returns the value on the die'''
-        return self.valueList[self.top - 1]
-
-    def roll(self):
-        '''GUIDie.roll()
-        rolls the die'''
-        self.top = random.randrange(1, 7)
-        self.draw()
-
-    def draw(self):
-        '''GUIDie.draw()
-        draws the pips on the die'''
-        # clear old pips first
-        self.erase()
-        # location of which pips should be drawn
-        pipList = [[(1, 1)],
-                   [(0, 0), (2, 2)],
-                   [(0, 0), (1, 1), (2, 2)],
-                   [(0, 0), (0, 2), (2, 0), (2, 2)],
-                   [(0, 0), (0, 2), (1, 1), (2, 0), (2, 2)],
-                   [(0, 0), (0, 2), (1, 0), (1, 2), (2, 0), (2, 2)]]
-        for location in pipList[self.top - 1]:
-            self.draw_pip(location, self.colorList[self.top - 1])
-
-    def draw_pip(self, location, color):
-        '''GUIDie.draw_pip(location,color)
-        draws a pip at (row,col) given by location, with given color'''
-        (centerx, centery) = (17 + 20 * location[1], 17 + 20 * location[0])  # center
-        self.create_oval(centerx - 5, centery - 5, centerx + 5, centery + 5, fill=color)
-
-    def erase(self):
-        '''GUIDie.erase()
-        erases all the pips'''
-        pipList = self.find_all()
-        for pip in pipList:
-            self.delete(pip)
+# Prime stuff
 
 
-class Decath400MFrame(Frame):
-    '''frame for a game of 400 Meters'''
-
-    def __init__(self, master, name):
-        '''Decath400MFrame(master,name) -> Decath400MFrame
-        creates a new 400 Meters frame
-        name is the name of the player'''
-        # set up Frame object
-        Frame.__init__(self, master)
-        self.grid()
-        # label for player's name
-        Label(self, text=name, font=('Arial', 18)).grid(columnspan=3, sticky=W)
-        # set up score and rerolls
-        self.scoreLabel = Label(self, text='Score: 0', font=('Arial', 18))
-        self.scoreLabel.grid(row=0, column=3, columnspan=2)
-        self.rerollLabel = Label(self, text='Rerolls: 5', font=('Arial', 18))
-        self.rerollLabel.grid(row=0, column=5, columnspan=3, sticky=E)
-        # initialize game data
-        self.score = 0
-        self.rerolls = 5
-        self.gameround = 0
-        # set up dice
-        self.dice = []
-        for n in range(8):
-            self.dice.append(GUIDie(self, [1, 2, 3, 4, 5, -6], ['black'] * 5 + ['red']))
-            self.dice[n].grid(row=1, column=n)
-        # set up buttons
-        self.rollButton = Button(self, text='Roll', command=self.roll)
-        self.rollButton.grid(row=2, columnspan=2)
-        self.keepButton = Button(self, text='Keep', state=DISABLED, command=self.keep)
-        self.keepButton.grid(row=3, columnspan=2)
-
-    def roll(self):
-        '''Decath400MFrame.roll()
-        handler method for the roll button click'''
-        # roll both dice
-        self.dice[2 * self.gameround].roll()
-        self.dice[2 * self.gameround + 1].roll()
-        # if this was the first roll of the round, turn on the keep button
-        if self.keepButton['state'] == DISABLED:
-            self.keepButton['state'] = ACTIVE
-        else:  # otherwise we just spent a reroll
-            self.rerolls -= 1
-            self.rerollLabel['text'] = 'Rerolls: ' + str(self.rerolls)
-        if (self.rerolls == 0):  # no rerolls left, so turn off roll button
-            self.rollButton['state'] = DISABLED
-
-    def keep(self):
-        '''Decath400MFrame.keep()
-        handler method for the keep button click'''
-        # add dice to score and update the scoreboard
-        self.score += self.dice[2 * self.gameround].get_top() + \
-                      self.dice[2 * self.gameround + 1].get_top()
-        self.scoreLabel['text'] = 'Score: ' + str(self.score)
-        self.gameround += 1  # go to next round
-        if self.gameround < 4:  # move buttons to next pair of dice
-            self.rollButton.grid(row=2, column=2 * self.gameround, columnspan=2)
-            self.keepButton.grid(row=3, column=2 * self.gameround, columnspan=2)
-            self.rollButton['state'] = ACTIVE
-            self.keepButton['state'] = DISABLED
-        else:  # game over
-            self.keepButton.grid_remove()
-            self.rollButton.grid_remove()
-            self.rerollLabel['text'] = 'Game over'
+def is_prime_wilson_theorem(n):
+    """To be added"""
+    return math.factorial(n - 1) % n == n - 1
 
 
-# play the game
-name = input("Enter your name: ")
-root = Tk()
-root.title('400 Meters')
-game = Decath400MFrame(root, name)
-game.mainloop()
+def is_prime_fermat_little_theorem(num):
+    """"""
+    return all(i ** (num - 1) % num == 1 for i in range(2, num))
+
+
+def is_prime(num):
+    """Checks if the number is prime"""
+    prime = True
+    if (num % 2 != 0 or 2) and num != 1:
+        num = int(num)
+        for i in range(2, int(math.ceil(math.sqrt(num)))):
+            if num % i == 0:
+                prime = False
+    else:
+        prime = False
+    return prime
+
+
+def prime_gen(start, stop, want_list=False):
+    """Generates primes from start=>stop"""
+    if start is None:
+        start = 1
+    if want_list:
+        ans = []
+        for i in range(start, stop):
+            if is_prime_fermat_little_theorem(i):
+                ans.append(i)
+    else:
+        return [i for i in range(start, stop + 1) if is_prime(i)]
+
+
+def lucas_lehmer(p):
+    """Implements Lucas Lehmer mersenne prime test."""
+    s = 4
+    m = pow(2, p) - 1
+    for i in range(1, p - 1):
+        s = (pow(s, 2) - 2) % m
+    if s == 0:
+        return True, pow(2, p) - 1
+
+
+def lucas_lehmer_gen(start, stop):
+    answer = []
+    for j in range(start, stop + 1):
+        if lucas_lehmer(j):
+            print(j, lucas_lehmer(j))
+            answer.append(j ** 2 - 1)
+        return answer
+
+
+def prime_factor(number):
+    ans = []
+    for i in range(2, number):
+        if is_prime(i):
+            x = 0
+            while x == 1:
+                if number % i == 0:
+                    ans.append(i)
+                    number = int(number / i)
+                else:
+                    x = 2
+            if number == 1:
+                return ans
+
+
+def factor(number):
+    return [
+        i for i in range(1, number + 1) if not number % i
+    ]
+
+
+def step_in_euclidean_algorithm(a, b):
+    x, y = divmod(a, b)
+    return a, b, x, y
+
+
+def euclidean_algorithm(a, b, want_fancy):
+    li = step_in_euclidean_algorithm(a, b)
+    while li[3] != 0:
+        li = step_in_euclidean_algorithm(li[1], li[3])
+    if want_fancy:
+        return str(li[0]) + " = " + str(li[1]) + "(" + str(li[2]) + ")" + "+" + str(li[3])
+    else:
+        return li
+
+
+def extended_euclidean_algorithm():
+    # should have param number
+    return NotImplemented
+
+
+def repeated_squaring(number, power):
+    ans = 1
+    for i in range(power):
+        ans *= number
+    print(ans)
+
+
+def find_lcm(m, n):
+    result = m * n / math.gcd(m, n)
+    print(result)
+
+
+def totient_function(m, print_units):
+    units = [i for i in range(1, m + 1) if math.gcd(i, m) == 1]
+    ans = len(units)
+    if print_units:
+        return ans, units
+    else:
+        return ans
+
+
+def nth_power(stop, power):
+    return [
+        i ** power for i in range(1, stop + 1)
+    ]
+
+
+def pascal_triangle(n, k):
+    return int(((math.factorial(n)) / (math.factorial(n - k) * math.factorial(k))))
+
+
+def pascals_triangle(stop):
+    ans = []
+    for n in range(1, stop + 1):
+        length = []
+        for k in range(0, n + 1):
+            length.append(pascal_triangle(n, k))
+        ans.append(length)
+    return ans
+
+
+def d(n, m):
+    if (m / n) % 1 == 0:
+        return True
+
+
+def partition(n):
+    partitions = []
+    ll = ""
+    for i in range(1, n + 1):
+        ll += str(i)
+    for i in range(1, n + 1):
+        combination = itertools.product(ll, repeat=i)
+        for element in combination:
+            z = 0
+            for character in element:
+                z += int(character)
+            if z == n:
+                new_part = []
+                for item in element:
+                    new_part.append(int(item))
+                if sorted(new_part) not in partitions:
+                    partitions.append(new_part)
+    return partitions
+
+
+def primitive_root(n):
+    primitive_roots = []
+    for i in range(2, n):
+        if math.gcd(i, n) == 1:
+            number = []
+            power = pow(i, 2) % n
+            while (power != i) and (power != 0) and (power != 1):
+                if power not in number:
+                    number.append(power)
+                power = pow(2, 2) % n
+                if len(number) == n:
+                    return i, number
+    if len(primitive_roots) == 0:
+        for w, y in itertools.product(range(2, n), repeat=2):
+            number = []
+            for x in range(1, n):
+                for z in range(1, n):
+                    if (math.gcd(w, n) == 1) and (math.gcd(y, n) == 1):
+                        if not (pow(w, x) * pow(y, z)) % n in number:
+                            number.append((pow(w, x) * pow(y, z)) % n)
+            if len(number) == n / 2 - ((n / 2) % 1):
+                return str(w) + ", " + str(y)
+    return "none"
+
+
+def primitive_root_table_multiplication(modulus):
+    modulus = int(modulus)
+    name = "primitive_root_table" + str(modulus) + ".txt"
+    file = open(name, 'w')
+    file.write(
+        '\\documentclass{article}\n' + '\\usepackage[utf8]{inputenc}\n' + '\\begin{document}\n' +
+        '\\begin{tabular}{|c|c|}\n' + 'number & primitive root equivalent \\\ \n')
+    primitive_roots = primitive_root(modulus)
+    two_gens = False
+    list_of_numbers = {}
+    if "," in str(primitive_roots):
+        two_gens = True
+    if two_gens:
+        for w, x, y, z in itertools.product(range(1, modulus, 2), repeat=4):
+            if pow(int(w), int(x)) * pow(y, z) % int(modulus) not in list_of_numbers:
+                list_of_numbers.update({str(w) + " " + str(x) + " " + str(y) + " " + str(z): (pow(w, x) * pow(y, z))})
+        for key in list_of_numbers:
+            w = x = y = z = 0
+            var = ""
+            for item in key:
+                if item == " ":
+                    if w == 0:
+                        w = var
+                    elif x == 0:
+                        x = var
+                    elif y == 0:
+                        y = var
+                    elif z == 0:
+                        z = var
+                    var = ""
+                else:
+                    var = var + item
+            new_key = "$" + str(w) + "^" + str(x) + "\\cdot" + str(y) + "^" + str(z) + "$"
+            line = new_key + " & " + "$" + str(modulus) + "^" + str(list_of_numbers[key]) + "$"
+            line = line + '\\\ ' + '\n'
+            file.write(line)
+    else:
+        for i in range(1, modulus):
+            list_of_numbers.update({"$" + str(i) + "$": "$" + str(primitive_roots) + "^" + str(i) + "$"})
+    file.write('\\end{tabular}\n' + '\\end{document}\n')
+    file.close()
+
+
+def root_equivalents(modulus, square_of_root):
+    return [i for i in range(0, modulus) if i ** 2 % modulus == square_of_root]
+
+
+def sum_set_exploration(set_a, set_b):
+    sum_set = []
+    for a in set_a:
+        for b in set_b:
+            sum_set.append(a + b)
+    sum_set = set(sum_set)
+    return sum_set
+
+
+def pigeon_hole(colors, number_needed):
+    return (number_needed - 1) * colors
