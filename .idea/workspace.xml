@@ -60,17 +60,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1de17fc-72a4-46b3-a87e-e4592fee2c13" name="Default" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/number-theory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/number-theory.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grow_number_theory_lists.py" beforeDir="false" afterPath="$PROJECT_DIR$/grow_number_theory_lists.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory.py" beforeDir="false" afterPath="$PROJECT_DIR$/number_theory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number_theory_essentials.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.egg-info/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.egg-info/requires.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/number_theory.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,6 +359,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="408" y="161" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1609629974531">
+      <screen x="0" y="23" width="1440" height="791" />
+    </state>
+    <state x="408" y="161" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.791@0.23.1440.791" timestamp="1609629974531" />
     <state x="508" y="180" key="FileChooserDialogImpl" timestamp="1609621811425">
       <screen x="0" y="23" width="1440" height="791" />
     </state>
@@ -369,6 +371,10 @@
       <screen x="0" y="23" width="1440" height="791" />
     </state>
     <state x="221" y="57" key="SettingsEditor/0.23.1440.791@0.23.1440.791" timestamp="1609621854483" />
+    <state x="385" y="69" width="670" height="676" key="search.everywhere.popup" timestamp="1609628379387">
+      <screen x="0" y="23" width="1440" height="791" />
+    </state>
+    <state x="385" y="69" width="670" height="676" key="search.everywhere.popup/0.23.1440.791@0.23.1440.791" timestamp="1609628379387" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

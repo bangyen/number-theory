@@ -5,59 +5,71 @@ import itertools
 # Prime stuff
 
 
-def is_prime_wilson_theorem(n):
-    """To be added"""
+def is_prime_wilsons_theorem(n):
+    """Check for primality using wilsons theorem"""
+    if n == 1 or n == 0:
+        return False
+    n = abs(n)
     return math.factorial(n - 1) % n == n - 1
 
 
 def is_prime_fermat_little_theorem(num):
-    """"""
+    """Check for primality using fermats little theorem, faster than wilsons theorem for larger numbers"""
+    if num == 1 or num == 0:
+        return False
     return all(i ** (num - 1) % num == 1 for i in range(2, num))
 
 
 def is_prime(num):
-    """Checks if the number is prime"""
-    prime = True
-    if (num % 2 != 0 or 2) and num != 1:
-        num = int(num)
-        for i in range(2, int(math.ceil(math.sqrt(num)))):
-            if num % i == 0:
-                prime = False
-    else:
-        prime = False
-    return prime
+    """Checks if the number is prime using fermats little theorem if the number is greater that 1000"""
+    if num == 1 or num == 0:
+        return False
+    if num > 1000:
+        return all(i ** (num - 1) % num == 1 for i in range(2, num))
+    n = abs(num)
+    return math.factorial(n - 1) % n == n - 1
 
 
-def prime_gen(start, stop, want_list=False):
+def prime_gen(start, stop=100, want_list=True):
     """Generates primes from start=>stop"""
     if start is None:
         start = 1
     if want_list:
         ans = []
         for i in range(start, stop):
-            if is_prime_fermat_little_theorem(i):
+            if is_prime(i):
                 ans.append(i)
+        return ans
     else:
-        return [i for i in range(start, stop + 1) if is_prime(i)]
+        for i in range(start, stop):
+            if is_prime(i):
+                print(i)
 
 
-def lucas_lehmer(p):
+def mersenne(n):
+    return (2 ** n) - 1
+
+
+def lucas_lehmer(n):
     """Implements Lucas Lehmer mersenne prime test."""
-    s = 4
-    m = pow(2, p) - 1
-    for i in range(1, p - 1):
-        s = (pow(s, 2) - 2) % m
-    if s == 0:
-        return True, pow(2, p) - 1
+    m = mersenne(n)
+    lucas_lehmer_list = [4]
+    if len(lucas_lehmer_list) < n:
+        for num in range(n - 1):
+            lucas_lehmer_list.append(lucas_lehmer_list[-1] ** 2 - 2)
+    if lucas_lehmer_list[n - 1] == 0:
+        return True
+    else:
+        return False
 
 
 def lucas_lehmer_gen(start, stop):
     answer = []
-    for j in range(start, stop + 1):
-        if lucas_lehmer(j):
-            print(j, lucas_lehmer(j))
-            answer.append(j ** 2 - 1)
-        return answer
+    for i in range(start, stop + 1):
+        if lucas_lehmer(i):
+            print(lucas_lehmer((i ** 2) - 1))
+            answer.append((i ** 2) - 1)
+    return answer
 
 
 def prime_factor(number):
